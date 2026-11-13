@@ -23,4 +23,5 @@ Website of Vāsantikā Pathshala, a school in Vraja giving children spiritual an
 
 - School photos in `images/` (breakfast, assembly, study time, prasadam, music and dance, festivals, plus a hero photo)
 - Bank account, UPI ID or QR code, WhatsApp number, address and email
-- The full site URL in the `og:image` tag in `index.html`, so link previews on WhatsApp show the share image
+
+Live at https://thenehasharma.github.io/vasantika-pathshala/
