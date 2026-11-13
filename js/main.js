@@ -26,6 +26,9 @@ const DATA={
 };
 const NOTES={onetime:"Infrastructure and equipment, about ₹15 lakh in all. Each item serves the children for years.",annual:"Yearly needs, about ₹5 lakh in all, including Vaiṣṇava uniforms such as dhotīs and gopī dresses.",occasional:"Groceries, outings and festival offerings through the year.",monthly:"Running costs of about ₹2 lakh every month."};
 const chosen=new Map();
+let touched=false;
+$("donate").addEventListener("click",e=>{if(e.target.closest("button,input"))touched=true},true);
+$("donate").addEventListener("input",()=>{touched=true},true);
 function toggle(id,label,amt,btn){
   if(chosen.has(id)){chosen.delete(id);btn.setAttribute("aria-pressed","false")}
   else{chosen.set(id,[label,amt]);btn.setAttribute("aria-pressed","true")}
@@ -80,8 +83,8 @@ function render(){
   $("pledge-empty").hidden=L.length>0;
   const tot=L.reduce((s,[,a])=>s+a,0);
   $("pledge-total").textContent=fmt(tot);
-  $("mbar-total").textContent=fmt(tot);
-  const mb=$("mbar-btn");mb.textContent=tot>0?"Review & send":"Donate now";mb.setAttribute("href",tot>0?"#offering":"#donate");
+  $("mbar-total").textContent=touched?fmt(tot):"₹2,500";$("mbar-total").previousSibling.textContent=touched?"Your offering":"Sponsors a child / month";
+  const mb=$("mbar-btn");const ready=touched&&tot>0;mb.textContent=ready?"Review & send":"Donate now";mb.setAttribute("href",ready?"#offering":"#donate");
   $("copied").textContent="";
 }
 $("copy").addEventListener("click",()=>{
