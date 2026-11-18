@@ -313,3 +313,15 @@ footer .bottom .deva{color:var(--gold)}
   .mbar span{font-size:.7rem}
   .mbar .btn{padding:10px 16px;font-size:.9rem}
 }
+
+/* quick give strip */
+.quickgive{padding-block:28px 0}
+.qg{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;max-width:860px;margin:0 auto;background:var(--saffron);border-radius:18px;padding:16px 18px;box-shadow:0 18px 40px -26px rgba(217,119,6,.9)}
+.qg-text{display:grid;flex:1 1 220px;min-width:0;color:var(--white);line-height:1.35}
+.qg-text b{font-family:var(--display);font-size:1.35rem;font-weight:600}
+.qg-text span{font-size:.88rem;color:#FFE6BF}
+.qg .rupee{flex:1 1 170px;min-width:0}
+.qg .rupee input{width:100%;font:600 16px var(--body);padding:12px 14px 12px 30px;border:0;border-radius:12px;background:var(--cream);color:var(--brown)}
+.qg .btn{background:var(--green);color:var(--cream);flex:0 0 auto}
+.qg .btn:hover{background:var(--green-dark)}
+@media (max-width:600px){.quickgive{padding-block:20px 0}.qg .btn{flex:1 1 100%}}
