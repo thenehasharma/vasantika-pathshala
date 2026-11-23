@@ -5,14 +5,14 @@ const $=id=>document.getElementById(id);
 const DAY=[
  ["7:15 AM","Nourishment","A wholesome breakfast of gur (jaggery) and chana for every student.","Photo: breakfast"],
  ["7:30 – 9:30 AM","Spiritual development","Senior students chant four rounds of japa, hear Śrīmad-Bhāgavatam katha, recite Bhagavad-gītā ślokas, and offer Tulasī and Nṛsiṁha ārati, with dīpa-dāna during Kārtika. Junior students join for one hour.","Photo: morning assembly"],
- ["9:30 AM – 1:15 PM","Academic learning","Regular education in all subjects, with English and Hindi learning enriched through scriptural teachings.","Photo: study time"],
- ["Midday","Daily prasadam","A nutritious lunch prasadam lovingly served to every student. Fruits and samak khichdi on Ekādaśī and festivals.","Photo: prasadam"],
+ ["9:30 AM – 1:15 PM","Academic learning","Regular education in all subjects, with English and Hindi learning enriched through scriptural teachings.","Photo: study time",["images/study-1.jpg","images/study-2.jpg","images/study-3.jpg"],"Students studying with their books and notebooks"],
+ ["Midday","Daily prasadam","A nutritious lunch prasadam lovingly served to every student. Fruits and samak khichdi on Ekādaśī and festivals.","Photo: prasadam",["images/prasadam-1.jpg","images/prasadam-2.jpg","images/prasadam-3.jpg"],"Smiling students enjoying khichdi prasadam"],
  ["2:00 – 4:00 PM","Creative development","Harmonium, mṛdaṅga and dance, stitching, art, painting and colouring, ribbon garlands and pearl jewellery, with occasional drama, to nurture creativity, confidence and skill.","Photo: music & crafts"],
  ["Through the year","Festivals & darśana","Holī, Dīpāvalī, Kārtika dīpa-dāna, Janmāṣṭamī, Gaura-pūrṇimā, and outings for darśana and parikramā.","Photo: festival"]
 ];
-DAY.forEach(([t,h,p,ph])=>{const c=document.createElement("article");c.className="card";
+DAY.forEach(([t,h,p,ph,imgs,alt])=>{const c=document.createElement("article");c.className="card";
   c.innerHTML=`<div class="photo"><div><svg><use href="#cam"/></svg><span></span></div></div><div class="body"><span class="time"></span><h3></h3><p></p></div>`;
-  c.querySelector(".photo span").textContent=ph;c.querySelector(".time").textContent=t;c.querySelector("h3").textContent=h;c.querySelector(".body p").textContent=p;$("day-list").appendChild(c)});
+  c.querySelector(".photo span").textContent=ph;if(imgs&&imgs.length){const box=c.querySelector(".photo");box.classList.add("has-img");box.style.setProperty("--n",imgs.length);box.innerHTML="";imgs.forEach((src,i)=>{const im=document.createElement("img");im.src=src;im.alt=i===0?(alt||h):"";im.loading="lazy";box.appendChild(im)})}c.querySelector(".time").textContent=t;c.querySelector("h3").textContent=h;c.querySelector(".body p").textContent=p;$("day-list").appendChild(c)});
 
 const ACTS=[["Music: harmonium & mṛdaṅga","Harmonium, mṛdaṅga, karatālas, kīrtana, dance and stage programmes."],["Art, painting & colouring","Drawing, painting, colouring and festival decorations."],["Stitching & handicrafts","Stitching, ribbon garlands and pearl jewellery made by the children."],["Practical life skills","Cleanliness, responsibility and care for our shared space."],["Outdoor & indoor games","Jhūle, cycles and games that keep children healthy and joyful."],["Spiritual & value-based films","Inspiring spiritual and motivational movies on the LED screen."]];
 ACTS.forEach(([h,p])=>{const a=document.createElement("div");a.className="act";a.innerHTML=`<svg viewBox="0 0 64 40"><use href="#lotus"/></svg><div><h3></h3><p></p></div>`;a.querySelector("h3").textContent=h;a.querySelector("p").textContent=p;$("acts").appendChild(a)});

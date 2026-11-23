@@ -325,3 +325,8 @@ footer .bottom .deva{color:var(--gold)}
 .qg .btn{background:var(--green);color:var(--cream);flex:0 0 auto}
 .qg .btn:hover{background:var(--green-dark)}
 @media (max-width:600px){.quickgive{padding-block:20px 0}.qg .btn{flex:1 1 100%}}
+
+/* real photos in daily cards */
+.card .photo.has-img{padding:0;background:var(--cream-2);display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:2px;place-items:stretch}
+.card .photo.has-img::before{display:none}
+.card .photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;min-height:0}
